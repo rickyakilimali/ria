@@ -7,7 +7,7 @@ from django.dispatch import receiver
 # Create your models here.
 
 class BusinessProfile(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
 	nom = models.CharField("Nom de l'entreprise", max_length=200)
 	presentation = models.TextField("Présentation de l'entreprise", max_length=500, blank=True)
 	logo = models.ImageField("Image", upload_to='logos/', blank=True,

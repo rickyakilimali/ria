@@ -16,12 +16,15 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from .views import HomePageView
-from .views import LoginView, LogOutView
- 
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^$', HomePageView.as_view(), name='home'),
-    url(r'^accounts/login/$', LoginView.as_view(), name='login'),
-    url(r'^accounts/logout/$', LogOutView.as_view(), name='logout'),
+    
+    
+    url(r'^category/', include('category.urls')),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^product/', include('product.urls')),
+    url(r'^quotation/', include('quotation.urls')),
 ]
